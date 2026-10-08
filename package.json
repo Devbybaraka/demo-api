@@ -1,10 +1,13 @@
 {
   "name": "slime-fish-demo-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A demo prediction-markets API built with Express and PostgreSQL",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push"
   },
   "repository": {
     "type": "git",
@@ -14,6 +17,17 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "6.12.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "prisma": "6.12.0"
+  },
   "bugs": {
     "url": "https://github.com/Devbybaraka/slime-fish-demo-api/issues"
   },
