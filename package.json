@@ -1,0 +1,21 @@
+{
+  "name": "slime-fish-demo-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devbybaraka/slime-fish-demo-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Devbybaraka/slime-fish-demo-api/issues"
+  },
+  "homepage": "https://github.com/Devbybaraka/slime-fish-demo-api#readme"
+}

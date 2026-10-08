@@ -1,0 +1,26 @@
+generator client{
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgrelsql"
+    url = env("DATABASE_URL")
+}
+
+model User {
+    id String @id @default(cuid())
+    name String
+    email string @unique
+    password String
+    createdAt DateTime @default(now())
+    markets Market[]
+    bets Bet[]
+}
+
+model Market {
+    id String @id @default(cuid())
+    question String 
+    description String?
+    category Stringf @default("crypto")
+    endDate DateTime
+}
