@@ -1,6 +1,6 @@
 const express = require('express');
 const prisma = require('../lib/prisma');
-const auth = require('./middleware/auth');
+const authenticate = require('./middleware/authenticate');
 
 const router = express.Router();
 
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
   res.json(markets);
 });
 
-router.post('/', auth, async (req, res) => {
+router.post('/', authenticate, async (req, res) => {
   const { question, description, category, endDate } = req.body || {};
   const parsedEndDate = new Date(endDate);
 
@@ -65,7 +65,7 @@ router.get('/:id', async (req, res) => {
   res.json({ market, odds: { YES: yesOdds, NO: noOdds } });
 });
 
-router.post('/:id/bet', auth, async (req, res) => {
+router.post('/:id/bet', authenticate, async (req, res) => {
   const { outcome, amount } = req.body || {};
   const numericAmount = Number(amount);
 
@@ -108,7 +108,7 @@ router.post('/:id/bet', auth, async (req, res) => {
   res.status(201).json(result.bet);
 });
 
-router.put('/:id/resolve', auth, async (req, res) => {
+router.put('/:id/resolve', authenticate, async (req, res) => {
   const { winningOutcome } = req.body || {};
   if (!['YES', 'NO'].includes(winningOutcome)) {
     return res.status(400).json({ message: 'winningOutcome must be YES or NO' });
